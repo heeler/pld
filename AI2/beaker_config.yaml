@@ -1,10 +1,10 @@
 version: v2
 budget: ai2/reviz # we were authorized to use this budget, but it may change
-description: AI1/DDP Demo # user defined
+description: AI1/Lightning Demo # user defined
 tasks:
   - name: AI1.DDP
     image:
-      beaker: jamiesherman/pytorch_dpp_1 # user defined
+      beaker: jamiesherman/pld_1 # user defined
     datasets:
       - mountPath: /weka/ai1
         source:
