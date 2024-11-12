@@ -1,0 +1,20 @@
+version: v2
+budget: ai2/reviz # we were authorized to use this budget, but it may change
+description: AI1/DDP Demo # user defined
+tasks:
+  - name: AI1.DDP
+    image:
+      beaker: jamiesherman/pytorch_dpp_1 # user defined
+    datasets:
+      - mountPath: /weka/ai1
+        source:
+          weka: ai1-default # user defined
+    result:
+      path: /outputs
+    resources:
+      gpuCount: 2 # if you need more than 1 gpu you will need to change
+    context:
+      priority: normal
+      preemptible: true
+    constraints:
+      cluster: [ ai2/saturn-cirrascale ] # change the cluster to the one you want to use (differences in gpu, preemption, etc)
