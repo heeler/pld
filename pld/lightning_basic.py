@@ -13,6 +13,7 @@ from tqdm import tqdm
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+devices = "auto"
 
 class MyAccuracy(Metric):
     def __init__(self):
@@ -54,7 +55,7 @@ class SimpleClassifier(L.LightningModule):
         accuracy = self.accuracy(scores_1d, y)
         f1_score = self.f1_score(scores_1d, y)
         self.log_dict({'train_loss': loss, 'train_accuracy': accuracy, 'train_f1_score': f1_score, 'my_accuracy': my_accuracy},
-                      on_step=False, on_epoch=True, prog_bar=True)
+                      on_step=False, on_epoch=True, prog_bar=False)
         return {'loss': loss, 'scores': scores, 'y': y}
 
     # def on_train_epoch_end(self, training_step_outputs):
@@ -164,7 +165,7 @@ def training_example():
     model.to(device)
 
     trainer = L.Trainer(accelerator="gpu",
-                        devices=2,
+                        devices="2",
                         strategy='ddp',
                         min_epochs=1,
                         max_epochs=400,
