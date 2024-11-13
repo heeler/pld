@@ -17,6 +17,6 @@ seaborn = "^0.13.2"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[project.scripts]
+[tool.poetry.scripts]
 pld_launch = "pld.lightning_basic:training_example"
 cuda_check = "pld.check_cuda:check_cuda"

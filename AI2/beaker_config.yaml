@@ -2,7 +2,7 @@ version: v2
 budget: ai2/reviz # we were authorized to use this budget, but it may change
 description: AI1/Lightning Demo # user defined
 tasks:
-  - name: AI1.DDP
+  - name: AI1.Lightning
     image:
       beaker: jamiesherman/pld_1 # user defined
     datasets:
@@ -17,4 +17,4 @@ tasks:
       priority: normal
       preemptible: true
     constraints:
-      cluster: [ ai2/saturn-cirrascale ] # change the cluster to the one you want to use (differences in gpu, preemption, etc)
+      cluster: [ ai2/jupiter-cirrascale-2 ] # change the cluster to the one you want to use (differences in gpu, preemption, etc)
